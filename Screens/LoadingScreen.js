@@ -11,7 +11,7 @@ export const LoadingScreen = () => {
         style={styles.logo}
         />
 
-           <Gif
+      <Gif
         source={Infinity} 
         style={styles.gif}
       />
@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
     resizeMode: 'contain', 
     marginBottom: 20, 
     },
-    gif: {
-        width: 50,
-        height: 50,
+  gif: {
+    width: 50,
+    height: 50,
   }
 });
