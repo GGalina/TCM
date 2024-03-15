@@ -1,0 +1,91 @@
+// // Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+// buildscript {
+//     ext {
+//         buildToolsVersion = findProperty('android.buildToolsVersion') ?: '34.0.0'
+//         minSdkVersion = Integer.parseInt(findProperty('android.minSdkVersion') ?: '23')
+//         compileSdkVersion = Integer.parseInt(findProperty('android.compileSdkVersion') ?: '34')
+//         targetSdkVersion = Integer.parseInt(findProperty('android.targetSdkVersion') ?: '34')
+//         kotlinVersion = findProperty('android.kotlinVersion') ?: '1.8.10'
+
+//         ndkVersion = "25.1.8937393"
+//     }
+//     repositories {
+//         google()
+//         mavenCentral()
+//     }
+//     dependencies {
+//         classpath('com.android.tools.build:gradle')
+//         classpath('com.facebook.react:react-native-gradle-plugin')
+//     }
+// }
+
+// apply plugin: "com.facebook.react.rootproject"
+
+// allprojects {
+//     repositories {
+//         maven {
+//             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+//             url(new File(['node', '--print', "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim(), '../android'))
+//         }
+//         maven {
+//             // Android JSC is installed from npm
+//             url(new File(['node', '--print', "require.resolve('jsc-android/package.json', { paths: [require.resolve('react-native/package.json')] })"].execute(null, rootDir).text.trim(), '../dist'))
+//         }
+
+//         google()
+//         mavenCentral()
+//         maven { url 'https://www.jitpack.io' }
+//     }
+// }
+
+
+buildscript {
+    ext {
+        buildToolsVersion = '34.0.0'
+        minSdkVersion = 23
+        compileSdkVersion = 34
+        targetSdkVersion = 34
+        kotlinVersion = '1.8.10'
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.0' // Update to the latest version
+        classpath 'com.facebook.react:react-native-gradle-plugin:0.66.0' // Update to the latest version
+    }
+}
+
+apply plugin: "com.facebook.react.rootproject" // Change to application plugin
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "com.ggalina.TCM" // Replace with your application ID
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+// Add this block for react-native-gesture-handler
+dependencies {
+    implementation platform('com.facebook.react:react-native:0.66.3')
+    implementation 'com.facebook.react:react-native:+'
+    implementation 'com.google.android.material:material:1.4.0-alpha03'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.facebook.react:react-native-gesture-handler:1.10.3'
+}
+
+// Add this line at the end of the file
+apply from: "../../node_modules/react-native/react.gradle"
