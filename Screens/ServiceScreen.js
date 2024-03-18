@@ -1,7 +1,6 @@
 import React from 'react';
 import { ScrollView, View, Image, Text, StyleSheet, Dimensions } from 'react-native';
 
-
 export const ServiceScreen = () => {
     return (
         <ScrollView contentContainerStyle={styles.container}>

@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
-import Infinity from '../assets/img/Infinity.gif';
 import Gif from 'react-native-gif';
+import Infinity from '../assets/img/Infinity.gif';
+import { View, Image, StyleSheet } from 'react-native';
 
 export const LoadingScreen = () => {
   return (

@@ -1,5 +1,12 @@
 import React from 'react';
-import { ScrollView, View, Image, Text, StyleSheet, Dimensions } from 'react-native';
+import {
+  Text,
+  View,
+  Image,
+  StyleSheet,
+  ScrollView,
+  Dimensions
+} from 'react-native';
 
 export const TherapistScreen = () => {
     return (

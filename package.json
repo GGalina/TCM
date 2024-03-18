@@ -19,6 +19,7 @@
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",
     "react-native": "0.73.5",
+    "react-native-calendar-datepicker": "^1.2.2",
     "react-native-gesture-handler": "~2.14.0",
     "react-native-gif": "^1.0.3",
     "react-native-maps": "^1.11.3",
