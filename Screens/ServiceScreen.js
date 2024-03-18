@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     },
     item: {
         flexDirection: 'row',
-        borderColor: '#808080',
+        borderColor: '#E5E4E2',
         borderWidth: 1,
         borderRadius: 5,
         marginBottom: 10,
@@ -181,7 +181,6 @@ const styles = StyleSheet.create({
         fontFamily: 'Roboto-Bold',
         fontSize: 14,
         color: '#FFFFFF',
-        //color: '#808080',
         backgroundColor: '#103d19',
         padding: 10,
         borderColor: '#103d19',
