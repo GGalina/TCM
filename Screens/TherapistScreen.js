@@ -20,7 +20,14 @@ export const TherapistScreen = () => {
     };
 
     const therapists = [
-        { 
+        {
+            name: 'Any available therapist', 
+            services: 'All services', 
+            location: 'All locations', 
+            image: require('../assets/img/logo.jpg'),
+            description: "Thank you for trusting us to select the perfect therapist for you; we'll ensure you're matched with an exceptional professional tailored to your needs."
+        },
+        {
             name: 'Nancy', 
             services: 'Thai massage, Deep tissue, aromatherapy, warm stone therapy, pregnancy massage', 
             location: 'TCM Acupuncture Center-Jumeirah', 
@@ -164,5 +171,5 @@ const styles = StyleSheet.create({
         fontFamily: 'Roboto-Bold',
         fontSize: 14,
         color: '#808080',
-    }
+    },
 });

@@ -30,9 +30,9 @@ const styles = StyleSheet.create({
     height: 150, 
     resizeMode: 'contain', 
     marginBottom: 20, 
-    },
+  },
   gif: {
     width: 50,
     height: 50,
-  }
+  },
 });

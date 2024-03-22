@@ -12,7 +12,7 @@ export const HomeScreen = () => {
   return (
     <View style={styles.container}>
         <Tab.Navigator
-            initialRouteName="Services"  
+            initialRouteName="Location"  
                 screenOptions={{
                     tabBarLabelStyle: {
                         fontSize: 12,

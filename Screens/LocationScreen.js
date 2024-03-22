@@ -1,64 +1,46 @@
-import MapView, { Marker } from "react-native-maps";
-import { Dimensions, StyleSheet, View} from 'react-native';
+import React from 'react';
+import { MapScreen } from './MapScreen';
+import { LocationListScreen } from './LocationsListScreen';
+import { View, StyleSheet, Dimensions } from 'react-native';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
+const Tab = createMaterialTopTabNavigator();
 
 export const LocationScreen = () => {
-
-    return (
-        <View style={styles.container}>
-            <MapView
-                style={styles.map}
-                region={{
-                    latitude: 25.2048,
-                    longitude: 55.2708,
-                    latitudeDelta: 0.3, 
-                    longitudeDelta: 0.3,
+  return (
+    <View style={styles.container}>
+        <Tab.Navigator
+            initialRouteName="Locations"  
+                screenOptions={{
+                    tabBarLabelStyle: {
+                        fontSize: 12,
+                        fontFamily: 'Roboto-Medium',
+                    },
+                    tabBarItemStyle: {
+                        width: Dimensions.get("window").width / 2,
+                        borderColor: 'white',
+                        borderRightWidth: 1
+                    },
+                    tabBarInactiveTintColor: '#808080',
+                    tabBarActiveTintColor: '#FFFFFF',
+                    tabBarIndicatorStyle: {
+                        backgroundColor: '#103d19'
+                    },
+                    tabBarStyle: {
+                        backgroundColor: '#103d19'
+                    },
                 }}
-                mapType="standard"
-            >
-                <Marker
-                    title={'TCM Acupuncture Therapy Center( Branch)'}
-                    description={'Working Hours: 9:00 - 00:00'}
-                    coordinate={{ latitude: 25.11616, longitude: 55.20278 }}
-                /> 
-                <Marker
-                    title={'TCM Acupuncture and Ayurveda Therapy Center Branch-Shop 8'}
-                    description={'Working Hours: 9:00 - 00:00'}
-                    coordinate={{ latitude: 25.11771, longitude: 55.19528 }}
-                /> 
-                <Marker
-                    title={'Al Barsha Therapy Center'}
-                    description={'Working Hours: 9:00 - 00:00'}
-                    coordinate={{ latitude: 25.11623, longitude: 55.19575 }}
-                /> 
-                <Marker
-                    title={'TCM Acupuncture Therapy Center -Shop 5'}
-                    description={'Working Hours: 9:00 - 23:00'}
-                    coordinate={{ latitude: 25.11646, longitude: 55.19484 }}
-                />
-                <Marker
-                    title={'TCM Acupuncture Center-Jumeirah'}
-                    description={'Working Hours: 10:00 - 23:30'}
-                    coordinate={{ latitude: 25.14337, longitude: 55.19106 }}
-                />
-                <Marker
-                    title={'TCM Massage & Relaxation Center Bay Square'}
-                    description={'Working Hours: 9:00 - 00:00'}
-                    coordinate={{ latitude: 25.18920, longitude: 55.28050 }}
-                />
-            </MapView>
-        </View>
-    );
+        >
+        <Tab.Screen name="Locations" component={LocationListScreen} />
+        <Tab.Screen name="Map" component={MapScreen} />
+      </Tab.Navigator>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    map: {
-        width: Dimensions.get("window").width,
-        height: Dimensions.get("window").height,
+        marginTop: 5
     },
 });

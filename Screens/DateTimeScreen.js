@@ -1,6 +1,8 @@
 import Moment from 'moment';
-import React, { useState } from 'react';
+import { useData } from '../DataContext';
+import React, { useState, useEffect } from 'react';
 import Calendar from 'react-native-calendar-datepicker';
+import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native-gesture-handler';
 import {
   View,
@@ -11,10 +13,24 @@ import {
 } from 'react-native';
 
 export const DateTimeScreen = () => {
+  const navigation = useNavigation();
+  const { state, dispatch } = useData();
   const [selectedDate, setSelectedDate] = useState();
   const [selectedTime, setSelectedTime] = useState();
 
   const timeSlots = ['10:30', '11:30', '13:00', '16:00', '18:00', '19:30', '20:30'];
+
+  useEffect(() => {
+    if (
+      state.location !== null &&
+      state.therapist !== null &&
+      state.service !== null &&
+      state.date !== null &&
+      state.time !== null
+    ) {
+      navigation.navigate('SuccessfulBooking');
+    }
+  }, [state]);
 
   const handleDateSelection = (date) => {
     setSelectedDate(date);
@@ -25,8 +41,8 @@ export const DateTimeScreen = () => {
   };
 
   const handleButtonPress = () => {
-    console.log('Time: ', selectedTime);
-    console.log('Date: ', selectedDate);
+    dispatch({ type: 'SELECT_DATE', payload: selectedDate }); 
+    dispatch({ type: 'SELECT_TIME', payload: selectedTime });
   };
 
   return (
@@ -185,17 +201,18 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#103d19',
-    color: '#000000',
-    padding: 20,
+    paddingBottom: 10,
+    paddingTop: 10,
+    paddingLeft: 50,
+    paddingRight: 50,
+    borderColor: '#103d19',
     borderWidth: 1,
     borderRadius: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
     marginTop: 20,
   },
   buttonText: {
     fontFamily: 'Roboto-Bold',
     fontSize: 14,
     color: '#FFFFFF'
-  }
+  },
 });

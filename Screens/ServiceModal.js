@@ -8,17 +8,22 @@ import {
     Dimensions,
     TouchableOpacity
 } from 'react-native';
+import { useData } from '../DataContext';
 import Icon from 'react-native-vector-icons/AntDesign';
+import { useNavigation } from '@react-navigation/native';
 
 export const ServiceModal = ({ service, modalVisible, setModalVisible }) => {
+    const navigation = useNavigation();
+    const { dispatch } = useData();
 
     const handleClose = () => {
         setModalVisible(false);
     };
 
     const handleSelect = () => {
-        console.log("selected service", service);
+        dispatch({ type: 'SELECT_SERVICE', payload: service }); 
         setModalVisible(false);
+        navigation.navigate('Therapist');
     };
 
     return (
@@ -51,9 +56,9 @@ export const ServiceModal = ({ service, modalVisible, setModalVisible }) => {
                             <Text style={styles.modalText}><Text style={styles.accent}>Benefits: </Text>{service.benefits}</Text>
                             <Text style={styles.modalBold}><Text style={styles.accent}>Price: </Text>{service.price}</Text>
 
-                            <View style={styles.closeButtonContainer}>
+                            <View style={styles.selectButtonContainer}>
                                 <TouchableOpacity onPress={handleSelect}>
-                                    <Text style={styles.closeButton}>Select</Text>
+                                    <Text style={styles.selectBtn}>Select</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
@@ -121,10 +126,10 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         color: '#000000'
     },
-    closeButtonContainer: {
+    selectButtonContainer: {
         alignItems: 'center',
     },
-    closeButton: {
+    selectBtn: {
         fontFamily: 'Roboto-Bold',
         fontSize: 16,
         color: '#FFFFFF',
