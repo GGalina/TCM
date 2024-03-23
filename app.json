@@ -15,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ggalina.TCM"
     },
     "android": {
       "adaptiveIcon": {
@@ -26,6 +27,11 @@
     },
     "web": {
       "favicon": "./assets/img/app-icon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "da3890f6-1c0b-414f-bc21-10248454d119"
+      }
     }
   }
 }
