@@ -26,9 +26,9 @@ export const SuccessfulBooking = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.header}>Your booking has been succesfull</Text>
+            <Text style={styles.header}>Your booking has been successful</Text>
             <Image
-                source={require('../assets/img/logo.jpg')}
+                source={require('../assets/img/app-icon.png')}
                 style={styles.logo}
             />
             <View style={styles.textWrap}>

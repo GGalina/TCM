@@ -7,7 +7,7 @@ export const LoadingScreen = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/img/logo.jpg')}
+        source={require('../assets/img/app-icon.png')}
         style={styles.logo}
         />
 
@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#FFFFFF'
   },
   logo: {
     width: 150, 

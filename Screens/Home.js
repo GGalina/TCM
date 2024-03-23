@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View} from 'react-native';
+import { StyleSheet, View, Dimensions} from 'react-native';
 import { ServiceScreen } from './ServiceScreen';
 import { DateTimeScreen } from './DateTimeScreen';
 import { LocationScreen } from './LocationScreen';
@@ -17,11 +17,8 @@ export const HomeScreen = () => {
                     tabBarLabelStyle: {
                         fontSize: 12,
                         fontFamily: 'Roboto-Medium',
-                        paddingTop: 10,
-                        paddingBottom: 10,
-                    },
-                    tabBarItemStyle: {
-                        width: 100,
+                        paddingTop: 5,
+                        paddingBottom: 5,
                     },
                     tabBarInactiveTintColor: '#808080',
                     tabBarActiveTintColor: '#000000',
@@ -31,6 +28,9 @@ export const HomeScreen = () => {
                     tabBarStyle: {
                         backgroundColor: '#E5E4E2'
                     },
+                    initialLayout: {
+                        width: Dimensions.get('window').width
+                    }
                 }}
         >
         <Tab.Screen name="Location" component={LocationScreen} />
@@ -45,6 +45,5 @@ export const HomeScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 50,
     },
 });
